@@ -6,12 +6,13 @@ import ru.skypro.demo.model.Question;
 import java.util.*;
 @Service
 public class QuestionServiceImpl implements QuestionService{
-    public static List<Question> listQuestions = new ArrayList<>(List.of(
+    private static final List<Question> listQuestions = new ArrayList<>(List.of(
             new Question("Сколько бит в одном байте?", "Восемь"),
             new Question("Какой язык программирования мы учим?", "JAVA"),
             new Question("Строка это объектный или примитивный тип?", "Объектный"),
             new Question("Что нельзя делать после полуночи?", "Курсовую)"),
             new Question("Сколько воросов ты придумал?", "Пять")));
+
 
     @Override
     public Question addQuestion(String question, String answer) {

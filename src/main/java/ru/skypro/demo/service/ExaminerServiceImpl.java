@@ -8,15 +8,15 @@ import java.util.*;
 
 @Service
 public class ExaminerServiceImpl implements ExaminerService{
-    private final QuestionServiceImpl questionService;
+    private final QuestionService questionService;
 
-    public ExaminerServiceImpl(QuestionServiceImpl questionService) {
+    public ExaminerServiceImpl(QuestionService questionService) {
         this.questionService = questionService;
     }
 
     @Override
     public Collection<Question> getQuestions(int amount) {
-        if (amount > questionService.listQuestions.size()) {
+        if (amount > questionService.getAll().size()) {
             throw new QuantityQuestionsException();
         }
         Collection<Question> examList = new HashSet<>();

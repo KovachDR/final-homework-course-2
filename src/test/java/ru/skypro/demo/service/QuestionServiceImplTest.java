@@ -4,9 +4,6 @@ import org.junit.jupiter.api.Test;
 
 import ru.skypro.demo.model.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 import static ru.skypro.demo.service.ConstantsForTests.*;
 
@@ -18,25 +15,25 @@ class QuestionServiceImplTest {
     @Test
     void shouldAddQuestion() {
         Question question = new Question(QUESTION, ANSWER);
-        assertFalse(questionService.listQuestions.contains(question));
-        assertEquals(5, questionService.listQuestions.size());
+        assertFalse(questionService.getAll().contains(question));
+        assertEquals(5, questionService.getAll().size());
 
         Question addedQuestion = questionService.addQuestion(QUESTION, ANSWER);
         assertEquals(question, addedQuestion);
-        assertEquals(6, questionService.listQuestions.size());
-        assertTrue(questionService.listQuestions.contains(question));
+        assertEquals(6, questionService.getAll().size());
+        assertTrue(questionService.getAll().contains(question));
     }
 
     @Test
     void remove() {
         Question addedQuestion = questionService.addQuestion(QUESTION, ANSWER);
-        assertEquals(6, questionService.listQuestions.size());
-        assertTrue(questionService.listQuestions.contains(addedQuestion));
+        assertEquals(6, questionService.getAll().size());
+        assertTrue(questionService.getAll().contains(addedQuestion));
 
         Question removedQuestion = questionService.removeQuestion(QUESTION, ANSWER);
         assertEquals(addedQuestion, removedQuestion);
-        assertEquals(5, questionService.listQuestions.size());
-        assertFalse(questionService.listQuestions.contains(addedQuestion));
+        assertEquals(5, questionService.getAll().size());
+        assertFalse(questionService.getAll().contains(addedQuestion));
 
     }
 
